@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>test</title>
+		<link rel="stylesheet" type="text/css" href="../../../bootstrap.css" ></link>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript">
+			<!--
+			var socket;
+			var in_wnd;
+			var out_wnd;
+
+			function init(){
+				in_wnd = document.getElementById('log');
+				out_wnd = document.getElementById('msg');
+				in_wnd.value='';
+				out_wnd.value='';
+
+				socket = io.connect('http://localhost');
+				socket.emit( 'jrm', { nick: finduser(), rid: findroom(), pwd: findpwd()} );
+				socket.on('jstat', function( data ){
+						var bool = data.bool;
+						if(bool)
+						{
+							receive_message( {nick: 'srv', msg:'successfully connected'});
+							setHeader( data.title );
+						}
+						else
+						{
+							receive_message({nick: 'srv', msg:'unable to connect'});
+						}
+					});
+				socket.on('smsg', receive_message);
+			}
+
+			function setHeader( name ){
+				//todo: deal with nasties
+				document.getElementById('h').innerHTML = name;
+			}
+
+			function receive_message( msg ){
+				//todo escape bads
+				in_wnd.value += "\n" + datestr()+' '+msg.nick + ' > '+msg.msg;
+			}
+
+			function datestr(){
+				var d = new Date();
+				return '['+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+']';
+			}
+
+			function send(){
+				console.log( 'attemping send' );
+				if(out_wnd.value != '')
+				{
+					console.log( 'sending' );
+					socket.emit('cmsg', out_wnd.value);
+					out_wnd.value = '';
+				}
+			}
+
+			function findroom(){
+				return document.URL.split('/')[4];
+			}
+			function findpwd(room){
+				return document.URL.split('/')[5];
+			}
+			function finduser(room){
+				return document.URL.split('/')[6];
+			}
+
+			-->
+		</script>
+			
+	</head>
+	<body onload="init()">
+			<div class="well" class="span12" align="center">
+				<h3 id='h' align="center">ChatRoom</h3>
+				<textarea class="span12" id='log' rows='20' cols='80' ></textarea><br />
+				<input type="text" id="msg" ></input>
+				<input type="submit" value="Send" class="btn-primary" onclick="send()" ></input><br />
+			</div>
+	</body>
+</html>

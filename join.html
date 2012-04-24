@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>test</title>
+		<link rel="stylesheet" type="text/css" href="../../bootstrap.css" ></link>
+		<script type="text/javascript">
+			<!--
+			function findroom(){
+				return document.URL.split('/')[4];
+			}
+			function findpwd(room){
+				return document.URL.split('/')[5];
+			}
+
+			function init(){
+				document.getElementById('rid').value = findroom();
+				document.getElementById('rpwd').value = findpwd();
+			}
+
+			function joinroom(){
+				window.location = '../../room/'+document.getElementById('rid').value
+					+'/'+document.getElementById('rpwd').value
+				   	+'/'+document.getElementById('user').value; 
+			}
+
+
+
+			-->
+		</script>
+			
+	</head>
+	<body onload="init()">
+			<div class="well">
+				<h3 align="center">Join a Room</h3>
+				<label>Username</label>
+				<input id='user' type="text" name="username" />
+				<label>Room Code:</label>
+				<input id="rid" type="text"  name="roomid" />
+				<label>Room Password:</label>
+				<input id="rpwd" type="text"  name="roompwd" />
+				<input type="submit" value="Connect" class="btn-primary" onclick="joinroom()" />
+			</div>
+	</body>
+</html>

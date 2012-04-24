@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>chatroom</title>
+		<link rel="stylesheet" type="text/css" href="../bootstrap.css" ></link>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript">
+			<!--
+			function showlink( data ){
+				var url = '/join/' + data.rid + '/' + data.pwd;
+				console.log("showlink called. "+url);
+				document.getElementById('rl').style.display = "block"; 
+				document.getElementById('rl').href = url;
+				document.getElementById('rl').innerHTML= 'http://localhost'+url;
+			}
+
+			function init(){
+				document.getElementById('rl').style.display = "none"; 
+			}
+
+			function createroom( name ){
+				if(name == undefined)
+				{
+					var r = document.getElementById('room').value;
+					createroom( r );
+				}
+				else
+				{
+					console.log('creating room '+name);
+					var socket = io.connect('http://localhost');
+					socket.on('roomcreated', showlink );
+					socket.emit('createroom', name );
+				}
+			}
+
+			-->
+		</script>
+			
+	</head>
+	<body onload="init()">
+			<div class="well" action="#">
+				<h3 align="center">Create a New Room</h3>
+				<label>Room Name</label>
+				<input type="text" id="room" />
+				<input type="submit" value="Create" class="btn-primary" onclick="createroom()" /><br />
+				<a id='rl' href="join/" >link</a>
+			</div>
+	</body>
+</html>

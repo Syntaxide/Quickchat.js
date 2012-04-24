@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>chatroom test</title>
+	</head>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script>
+		<!--
+		var socket = io.connect('http://localhost');
+		socket.on('welcome', function(motd){
+			receive( {user: 'Server', msg: "Message of the Day: "+motd['motd'] });
+		});
+
+		socket.on('msg', function(msg){
+			receive( msg );
+		});
+
+
+		function send(){
+			var message = {user: getUser(), msg: getMsg() };
+			message.user = getUser();
+			message.msg = getMsg();
+
+			socket.emit( "msg", message );
+			receive( message  );
+		}
+
+		function getUser(){
+			return document.getElementById('user').value;
+		}
+		function getMsg(){
+			return document.getElementById('message').value;
+		}
+		function receive(msg)
+		{
+			document.getElementById('incoming').value += "\n"+ msg.user+" > "+msg.msg;
+		}
+		function clear()
+		{
+			document.getElementById('incoming').value = '';
+		}
+		-->
+	</script>
+	<body onload="clear()">
+		<textarea id="incoming" rows="20" cols="80"></textarea><br />
+
+		<input type="text" id="user" value="username"></input>
+		<input type="text" id="message" value="message here"></input>
+		<input type="submit" value="send" onclick="send()" ></input>
+	</body>
+</html>
+
